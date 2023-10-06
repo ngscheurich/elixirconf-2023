@@ -12,7 +12,7 @@ You can [view the talk on YouTube][video] and it is described thusly:
 
 ## Projects
 
-You might notice, upon cursory inpection, that it seems as though I’ve (perhaps _unceremoniously_), jammed the code for four separate projects into a single Git repository. Well, you’re right. I did that. But there _was_ a small ceremony. Let’s just call it a monorepo.
+You might notice, upon cursory inspection, that it seems as though I’ve (perhaps _unceremoniously_), jammed the code for four separate projects into a single Git repository. Well, you’re right. I did that. But there _was_ a small ceremony. Let’s just call it a monorepo.
 
 ### Counter
 
