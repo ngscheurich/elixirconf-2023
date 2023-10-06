@@ -1,0 +1,5 @@
+use_flake
+
+export PGHOST=$PWD/tmp/db
+export PGDATA=$PGHOST/data
+export PGDATABASE=postgres

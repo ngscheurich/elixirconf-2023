@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+#counter {
+  width: 100vw;
+  height: 100vh;
+  /* background-color: #050104; */
+  /* background-color: #62476b; */
+  background-color: #816D88;
+  border-radius: 100vh;
+  /* color: #C7A0CE; */
+  color: #050104;
+  font-size: 60vh;
+  line-height: 100vh;
+  text-align: center;
+}
+
+/* @media screen and (max-width: 200px) { */
+/*   /* background-color: #402C40; */ */
+/*   /* background-color: #050104; */ */
+/*   background-color: "#816D88"; */
+/* } */

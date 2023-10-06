@@ -1,0 +1,67 @@
+#!/bin/bash
+
+set -e
+
+VERSION="0.1.0"
+
+function start {
+  mkdir -p "$PGHOST"
+
+  if [ ! -d "$PGDATA" ]; then
+    printf '[postgresql] initializing database.... '
+    initdb --auth=trust > /dev/null
+    printf 'done\nserver initialized\n'
+  fi
+
+  if ! pg_ctl status > /dev/null; then
+    printf '[postgresql] '
+    pg_ctl -o "--unix_socket_directories='$PGHOST'" -l "$PGHOST/postgresql.log" start
+  fi
+
+  if ! psql -c '\du' | grep '^ postgres' > /dev/null; then
+    printf '[postgresql] creating postgres superuser.... '
+    createuser -s postgres
+    printf 'done\nuser created\n'
+  fi
+}
+
+function stop {
+  echo -n "[postgresql] "
+  pg_ctl stop
+}
+
+function help {
+  cat << EOF
+Database helpers
+Version $VERSION
+
+USAGE:
+    db [OPTION]
+    db [COMMAND]
+
+OPTIONS:
+    -h, --help       Print this information
+    -v, --version    Print version information
+
+COMMANDS:
+    start Start the database server
+    stop  Stop the database server
+EOF
+}
+
+function version {
+  echo "db $VERSION"
+}
+
+case "$1" in
+  "-h" | "--help")
+    help;;
+  "-v" | "--version")
+    version;;
+  "start")
+    start;;
+  "stop")
+    stop;;
+  *)
+    help;;
+esac

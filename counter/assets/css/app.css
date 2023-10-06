@@ -1,0 +1,21 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* This file is for your main application CSS */
+
+body {
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+.big-button {
+  outline: 10px solid #fff2;
+  border: 10px solid #75517a;
+  box-shadow: 0 0 100px black;
+  touch-action: none;
+}
+
+.big-button:active,
+.big-button:target {
+  border-width: 15px;
+}
